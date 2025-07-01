@@ -1,0 +1,25 @@
+.infoCard {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 8px 16px 8px 8px;
+  border: 1px solid var(--border-primary);
+}
+
+.infoText {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoTitle {
+  font-size: 12px !important;
+  color: var(--text-secondary-light);
+  text-transform: uppercase;
+}
+
+.infoImg {
+  width: 100%;
+  max-width: 42px;
+}

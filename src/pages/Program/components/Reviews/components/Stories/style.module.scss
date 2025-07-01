@@ -1,0 +1,183 @@
+.body {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.right {
+  @include fluid(padding-top, 64px, 0px, 375px, 1236px);
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1 1 auto;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    align-items: center;
+  }
+}
+
+.title {
+  display: flex;
+  align-items: start;
+  gap: 8px;
+  color: var(--surface-secondary);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.decor {
+  width: 100%;
+  max-width: 27px;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.card {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+  position: relative;
+  z-index: 0;
+  border: 0.76px solid #ececec;
+  border-radius: 12px;
+  padding: 24px;
+  background-color: var(--white);
+
+  @media (max-width: 768px) {
+    width: 434px;
+  }
+}
+
+.cardLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 101px;
+}
+
+.cardAvatar {
+  width: 100%;
+  max-width: 81px;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cardText {
+  width: 100%;
+  max-width: 546px;
+}
+
+.cardDecor {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 107px;
+  z-index: -1;
+}
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include fluid(min-width, 395px, 0px, 375px, 1236px);
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.reviewsDisplay {
+  width: 100%;
+  padding: 59px 24px;
+  border-radius: 12px;
+  box-shadow:
+    0 0 18px 0 rgba(38, 41, 44, 0.05),
+    0 -1px 20px 0 rgba(204, 204, 204, 0.25);
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.reviewsStars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.reviewsStar {
+  color: #eecd5e;
+  font-size: 32px;
+}
+
+.reviewsCount {
+  text-transform: capitalize;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+.reviewsButton {
+  color: #473c05 !important;
+  padding: 12px 0;
+  width: 100%;
+  border: 1px solid rgba(71, 60, 5, 0.3) !important;
+}
+
+.slider {
+  display: none;
+  width: 100%;
+  margin-bottom: 48px;
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.pagination {
+  gap: 9px;
+  display: none;
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+.paginationMark {
+  border-radius: 12px;
+  width: 16px;
+  height: 6px;
+  background: rgba(47, 46, 65, 0.15);
+  transition: all 0.3s ease 0s;
+
+  &.active {
+    width: 64px;
+    background-color: var(--surface-yellow);
+  }
+}

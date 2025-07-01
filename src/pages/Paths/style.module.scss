@@ -1,0 +1,11 @@
+.paths {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 40px;
+
+  a {
+    font-size: 40px;
+    text-decoration: underline;
+  }
+}

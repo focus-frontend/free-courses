@@ -1,0 +1,17 @@
+.catolog {
+    overflow: hidden;
+}
+
+.body {
+    display: flex;
+    gap: 24px;
+    @include fluid(padding-bottom, 85px, 41px, 375px, 1440px)
+}
+
+.sidebar {
+    align-self: flex-start;
+
+    @media (max-width: 640px) {
+        display: none;
+    }
+}

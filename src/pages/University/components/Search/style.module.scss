@@ -1,0 +1,167 @@
+.searchBlock {
+  overflow: hidden;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 0;
+
+  @media (max-width: 640px) {
+    padding-bottom: 24px;
+  }
+}
+
+.tabs {
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.breadcrumbs {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.decor {
+  margin-bottom: 8px;
+  width: 44px;
+  height: 44px;
+}
+
+.title {
+  margin-bottom: 24px;
+}
+
+.text {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  padding: 8px 8px 8px 16px;
+  gap: 21px;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 24px;
+  background-color: var(--white);
+}
+
+.searchInput {
+  flex: 1 1 auto;
+
+  &::placeholder {
+    color: #919dbb;
+  }
+}
+
+.searchButton {
+  padding: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchIcon {
+  font-size: 24px;
+}
+
+.filters {
+  display: none;
+  align-items: center;
+  gap: 24px;
+
+  @media (max-width: 640px) {
+    display: flex;
+  }
+}
+
+.dropdown {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  padding: 8px 16px;
+  background-color: var(--white);
+}
+
+.dropdownArrow {
+  font-size: 16px;
+}
+
+.filterButton {
+  display: flex;
+  gap: 8px;
+  border: 1px solid var(--border-primary) !important;
+  border-radius: 12px;
+  padding: 8px 16px 8px 8px;
+  background-color: var(--white);
+}
+
+.filterCounter {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  color: var(--surface-primary);
+  background-color: #ebc500;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+}
+
+.courses {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (max-width: 640px) {
+    width: 100%;
+  }
+}
+
+.coursesTitle {
+  display: none;
+
+  @media (max-width: 640px) {
+    display: block;
+  }
+}
+
+.course {
+  padding: 8px 16px;
+}
+
+.course {
+  background: var(--white);
+  border: 1px solid var(--white);
+  border-radius: 12px;
+  white-space: nowrap;
+
+  @media (any-hover: hover) {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      background: #ebc500;
+      color: var(--white);
+      border-color: #ebc500;
+    }
+  }
+
+  &.active {
+    background: #ebc500;
+    color: var(--white);
+    border-color: #ebc500;
+  }
+}
+
+.sidebar {
+  @media (min-width: 640px) {
+    display: none !important;
+  }
+}

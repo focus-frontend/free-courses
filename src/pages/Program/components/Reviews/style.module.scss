@@ -1,0 +1,8 @@
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  @include fluid(padding-top, 48px, 32px, 375px, 1236px);
+  @include fluid(padding-bottom, 48px, 32px, 375px, 1236px);
+}

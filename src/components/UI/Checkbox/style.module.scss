@@ -1,0 +1,52 @@
+.checkbox {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  /* Remove most all native input styles */
+  appearance: none;
+  /* For iOS < 15 */
+  background-color: var(--white);
+  /* Not removed via appearance */
+  margin: 0;
+
+  font: inherit;
+  color: currentColor;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 120ms all ease-in-out;
+}
+
+.checkbox:before {
+  content: "";
+  width: 7px;
+  height: 10px;
+  border: 0 solid #473C05;
+  border-right-width: 3px;
+  border-bottom-width: 3px;
+  position: absolute;
+
+  transform: translate(0px, -2px) scale(0) rotate(45deg);
+  transition: 120ms transform ease-in-out;
+}
+
+.checkbox:checked {
+  background-color: var(--surface-yellow);
+  border-color: var(--surface-yellow);
+}
+
+.checkbox:checked::before {
+  transform: translate(0px, -2px) scale(1) rotate(45deg);
+}
+
+.checkbox:disabled {
+  --form-control-color: var(--form-control-disabled);
+
+  color: var(--form-control-disabled);
+  cursor: not-allowed;
+}
