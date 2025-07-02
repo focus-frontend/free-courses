@@ -39,6 +39,21 @@
     }
   }
 
+  &.type-blue {
+    background: var(--surface-brand);
+    border-color: var(--surface-brand);
+    color: var(--white);
+
+    @media (any-hover: hover) {
+      cursor: pointer;
+      transition: all 0.3s ease 0s;
+      &:hover {
+        background: #205fff;
+        border-color: #205fff;
+      }
+    }
+  }
+
   @media (max-width: 640px) {
     font-size: 14px;
   }

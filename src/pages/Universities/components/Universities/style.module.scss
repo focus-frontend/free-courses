@@ -64,6 +64,16 @@
     border-color: var(--surface-yellow);
     color: var(--surface-primary);
   }
+
+  @media (any-hover: hover) {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      background-color: var(--surface-yellow);
+      border-color: var(--surface-yellow);
+      color: var(--surface-primary);
+    }
+  }
 }
 
 .sort {
@@ -85,8 +95,13 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(292px, 1fr));
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
   gap: 24px;
+
+  @include fluid(gap, 24px, 12px, 375px, 1236px);
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
 }
 
 .slider {

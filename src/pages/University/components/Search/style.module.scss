@@ -114,7 +114,7 @@
   border-radius: 8px;
 }
 
-.courses {
+.tags {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -124,7 +124,7 @@
   }
 }
 
-.coursesTitle {
+.tagsTitle {
   display: none;
 
   @media (max-width: 640px) {
@@ -132,11 +132,8 @@
   }
 }
 
-.course {
+.tag {
   padding: 8px 16px;
-}
-
-.course {
   background: var(--white);
   border: 1px solid var(--white);
   border-radius: 12px;
@@ -147,9 +144,8 @@
     transition: all 0.3s ease 0s;
 
     &:hover {
-      background: #ebc500;
-      color: var(--white);
-      border-color: #ebc500;
+      background: #ffe45b;
+      border-color: #ffe45b;
     }
   }
 

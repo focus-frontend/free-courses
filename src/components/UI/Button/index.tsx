@@ -5,7 +5,7 @@ type PropsType = {
   children?: React.ReactNode;
   className?: string;
   onClick?: () => void;
-  type?: "yellow" | "white";
+  type?: "yellow" | "white" | "blue";
   decor?: boolean;
 
   disabled?: boolean;

@@ -2,29 +2,12 @@ import { ArrowLeft, ArrowRight, Star } from "@/components/icons";
 import style from "./style.module.scss";
 import { Button } from "@/components/UI";
 import { Swiper as SwiperSlider, SwiperSlide } from "swiper/react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type Swiper from "swiper";
-
-type CardType = {
-  img: string;
-  title: string;
-  rate: string;
-  reviews: string;
-  university: string;
-  time: string;
-};
-
-const card: CardType = {
-  img: "/assets/img/university/catalog/img.png",
-  title: "Master degree in Mathematics and Computer Science",
-  rate: "4,5",
-  reviews: "1k",
-  university: "Kyiv University",
-  time: "4h50m",
-};
-const items = Array.from({ length: 9 }, () => ({ ...card }));
+import usePrograms, { type CardType } from "@/stores/programs";
 
 const Feed = () => {
+  const { cardsFiltered, fetchCards } = usePrograms()
   const swiperRef = useRef<Swiper>(null);
 
   const [atStart, setAtStart] = useState<boolean>(false);
@@ -35,10 +18,14 @@ const Feed = () => {
     setAtEnd(swiper.isEnd);
   };
 
+  useEffect(() => {
+    fetchCards()
+  }, [fetchCards])
+
   return (
     <>
       <div className={style.grid}>
-        {items.map((item, index) => (
+        {cardsFiltered().map((item, index) => (
           <Card key={index} {...item} />
         ))}
       </div>
@@ -55,7 +42,7 @@ const Feed = () => {
             setAtEnd(swiper.isEnd);
           }}
         >
-          {items.map((item, index) => (
+          {cardsFiltered().map((item, index) => (
             <SwiperSlide key={index}>
               <Card {...item} />
             </SwiperSlide>

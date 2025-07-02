@@ -1,22 +1,22 @@
 import style from "./style.module.scss";
-import React, { useState } from "react";
+import React from "react";
 
 interface CheckboxProps {
   id?: string;
-  initialChecked?: boolean;
+  value?: boolean;
   onChange?: (checked: boolean) => void;
 }
 
 const CheckBox: React.FC<CheckboxProps> = ({
   id,
-  initialChecked = false,
+  value = false,
   onChange,
 }) => {
-  const [isChecked, setIsChecked] = useState<boolean>(initialChecked);
+  // const [isChecked, setIsChecked] = useState<boolean>(value);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newCheckedState = event.target.checked;
-    setIsChecked(newCheckedState);
+    // setIsChecked(newCheckedState);
     if (onChange) {
       onChange(newCheckedState);
     }
@@ -26,7 +26,7 @@ const CheckBox: React.FC<CheckboxProps> = ({
     <input
       id={id}
       className={style.checkbox}
-      checked={isChecked}
+      checked={value}
       onChange={handleChange}
       type="checkbox"
       name="checkbox"

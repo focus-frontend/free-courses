@@ -6,37 +6,53 @@ import Sidebar from "../Catalog/components/Sidebar";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
+import usePrograms from "@/stores/programs";
 
 const tabs = [{
   label: 'About',
   value: 'about'
 }]
 
-const courses: {
+const tagsList: {
   label: string;
-  active: boolean;
+  value: string;
 }[] = [
     {
       label: "Marketing",
-      active: false,
+      value: "marketing",
     },
     {
       label: "Computer science",
-      active: true,
+      value: "computer-science"
     },
     {
       label: "Design",
-      active: false,
+      value: "design"
     },
     {
       label: "Buisness",
-      active: false,
+      value: "buisness"
     },
   ];
 
 const Search = () => {
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
   const [selectTab, setSelectTab] = useState('about')
+  const { tags, setTags, search, setSearch } = usePrograms()
+  // const timeoutSearch = useRef<NodeJS.Timeout | null>(null)
+
+  function searchInput(e: React.ChangeEvent<HTMLInputElement>) {
+    setSearch((e.target as HTMLInputElement).value)
+  }
+
+  const toggleActiveTag = (value: string) => {
+    if (tags.includes(value)) {
+      setTags(tags.filter(v => v !== value))
+    } else {
+      setTags([...tags, value])
+    }
+  }
+
 
   return (
     <div className={style.searchBlock}>
@@ -71,6 +87,8 @@ const Search = () => {
               className={`p-responsive ${style.searchInput}`}
               placeholder="Search a course"
               type="text"
+              value={search}
+              onInput={searchInput}
             />
 
             <Button decor={true} className={style.searchButton}>
@@ -94,9 +112,8 @@ const Search = () => {
             </Button>
           </div>
 
-          <div className={style.courses}>
-            <h3 className={`h4-bold ${style.coursesTitle}`}>Topics</h3>
-
+          <div className={style.tags}>
+            <h3 className={`h4-bold ${style.tagsTitle}`}>Topics</h3>
             <Swiper
               slidesPerView={"auto"}
               freeMode={true}
@@ -104,14 +121,15 @@ const Search = () => {
               spaceBetween={8}
               modules={[FreeMode]}
             >
-              {courses.map((course) => {
+              {tagsList.map((tag) => {
                 return (
-                  <SwiperSlide key={course.label}>
+                  <SwiperSlide key={tag.label}>
                     <button
-                      className={`p-body-responsive ${style.course} ${course.active ? style.active : ""
+                      onClick={() => toggleActiveTag(tag.value)}
+                      className={`p-body-responsive ${style.tag} ${tags.includes(tag.value) ? style.active : ""
                         }`}
                     >
-                      {course.label}
+                      {tag.label}
                     </button>
                   </SwiperSlide>
                 );

@@ -1,7 +1,10 @@
+import React from "react";
 import { Button } from "@/components/UI";
 import style from "./style.module.scss";
 import Breadcrumbs, { type ItemType } from "@/components/UI/Breadcrumbs";
 import { Search } from "@/components/icons";
+import useUniversities from "@/stores/universities";
+// import { useRef } from "react";
 
 const links: ItemType[] = [
   {
@@ -15,6 +18,22 @@ const links: ItemType[] = [
 ];
 
 const Main = () => {
+
+  const { search, setSearch } = useUniversities((state) => state)
+  // const timeoutSearch = useRef<NodeJS.Timeout | null>(null)
+
+  function searchInput(e: React.ChangeEvent<HTMLInputElement>) {
+    setSearch((e.target as HTMLInputElement).value)
+
+    // if (timeoutSearch.current) {
+    //   clearTimeout(timeoutSearch.current)
+    // }
+
+    // timeoutSearch.current = setTimeout(() => {
+    //   fetchCards()
+    // }, 500);
+  }
+
   return (
     <div className={style.main}>
       <div className="container">
@@ -35,7 +54,10 @@ const Main = () => {
           </p>
 
           <div className={style.search}>
+
             <input
+              value={search}
+              onInput={searchInput}
               className={`p-responsive ${style.searchInput}`}
               placeholder="Search 15 000+ no‑cost learning..."
               type="text"

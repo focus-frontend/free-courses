@@ -1,111 +1,113 @@
 .grid {
-    flex: 1 1 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    justify-content: center;
-    gap: 24px;
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 285px));
+  gap: 24px;
 
-    @media (max-width: 440px) {
-        display: none;
-    }
+  @media (max-width: 640px) {
+    justify-content: center;
+  }
+
+  @media (max-width: 440px) {
+    display: none;
+  }
 }
 
 .sliderBody {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 
-    @media (min-width: 441px) {
-        display: none;
-    }
+  @media (min-width: 441px) {
+    display: none;
+  }
 }
 
 .slider {
-    width: 100%;
-
+  width: 100%;
 }
 
 .sliderNavigation {
-    align-self: flex-end;
-    display: flex;
-    gap: 8px;
+  align-self: flex-end;
+  display: flex;
+  gap: 8px;
 }
 
 .slideNav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: var(--white);
-    padding: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--white);
+  padding: 11px;
 }
 
 .card {
-    padding: 8px;
-    border-radius: 12px;
-    background-color: var(--white);
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  padding: 8px;
+  border-radius: 12px;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .cardImg {
-    width: 100%;
-    border: 1px solid var(--border-border-primary);
-    border-radius: 8px;
+  width: 100%;
+  border: 1px solid var(--border-border-primary);
+  border-radius: 8px;
 }
 
 .cardInfo {
-    display: flex;
-    flex-direction: column;
-    gap: 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
 }
 
 .cardTop {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .cardBottom {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .cardRate {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .cardStars {
-    display: flex;
-    align-items: center;
-    gap: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .cardStar {
-    font-size: 14px;
-    color: #EECD5E;
+  font-size: 14px;
+  color: #eecd5e;
 }
 
 .cardReviws {
-    text-transform: capitalize;
-    text-decoration: underline;
-    text-decoration-skip-ink: none;
-    color: var(--text-secondary-light);
+  text-transform: capitalize;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: var(--text-secondary-light);
 }
 
 .cardUniversityTime {
-    gap: 44px;
-    display: flex;
-    align-items: center;
-    color: var(--text-secondary-light);
+  gap: 44px;
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary-light);
 }
 
 .cardButton {
-    padding: 12px 0;
-    width: 100%;
+  padding: 12px 0;
+  width: 100%;
 }

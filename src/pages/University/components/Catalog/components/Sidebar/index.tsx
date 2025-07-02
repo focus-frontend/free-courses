@@ -1,11 +1,12 @@
 import CheckBox from "@/components/UI/Checkbox";
 import style from "./style.module.scss";
+import usePrograms from "@/stores/programs";
 
 type ItemType = {
   id: string;
   label: string;
-  active: boolean;
   count: number;
+  value: string;
 };
 
 type FilterSection = {
@@ -13,32 +14,36 @@ type FilterSection = {
   items?: ItemType[];
 };
 
-const filters: FilterSection[] = [
+const filtersList: FilterSection[] = [
   {
     title: "Degree type",
     items: [
       {
         id: "1",
         label: "Non-Degree Programs",
-        active: true,
+        value: "non-degree",
+
         count: 17,
       },
       {
         id: "2",
         label: "Undergraduate Degrees",
-        active: false,
+        value: "undergraduate",
+
         count: 2,
       },
       {
         id: "3",
         label: "Graduate Degrees",
-        active: false,
+        value: "graduate",
+
         count: 2,
       },
       {
         id: "4",
         label: "Doctoral Degrees",
-        active: false,
+        value: "doctoral",
+
         count: 2,
       },
     ],
@@ -49,13 +54,15 @@ const filters: FilterSection[] = [
       {
         id: "5",
         label: "English",
-        active: true,
+        value: "english",
+
         count: 17,
       },
       {
         id: "6",
         label: "Ukrainian",
-        active: false,
+        value: "ukrainian",
+
         count: 2,
       },
     ],
@@ -66,13 +73,15 @@ const filters: FilterSection[] = [
       {
         id: "7",
         label: "Online",
-        active: true,
+        value: "online",
+
         count: 17,
       },
       {
         id: "8",
         label: "On campus",
-        active: false,
+        value: "on-campus",
+
         count: 2,
       },
     ],
@@ -83,13 +92,15 @@ const filters: FilterSection[] = [
       {
         id: "9",
         label: "Free",
-        active: true,
+        value: "free",
+
         count: 17,
       },
       {
         id: "10",
         label: "10k - 100k",
-        active: false,
+        value: "10k-100k",
+
         count: 2,
       },
     ],
@@ -100,18 +111,21 @@ const filters: FilterSection[] = [
       {
         id: "11",
         label: "1 to 3 hours",
-        active: true,
+        value: "1-3-hours",
+
         count: 17,
       },
       {
         id: "12",
         label: "3 to 6 hours",
-        active: false,
+        value: "3-6-hours",
+
         count: 41,
       },
     ],
   },
 ];
+
 
 const Sidebar = ({
   className,
@@ -122,6 +136,7 @@ const Sidebar = ({
   show?: boolean;
   close?: () => void;
 }) => {
+
   return (
     <div
       className={`${style.sidebar} ${show ? style.active : ""} ${className}`}
@@ -134,7 +149,7 @@ const Sidebar = ({
         </button>
       </div>
 
-      {filters.map((filter) => {
+      {filtersList.map((filter) => {
         return <Section key={filter.title} {...filter} />;
       })}
     </div>
@@ -142,6 +157,16 @@ const Sidebar = ({
 };
 
 const Section = ({ title, items = [] }: FilterSection) => {
+  const { filters, setFilters } = usePrograms()
+
+  function onChange(checkValue: boolean, value: string) {
+    if (checkValue) {
+      setFilters([...filters, value])
+    } else {
+      setFilters(filters.filter(item => item !== value))
+    }
+  }
+
   return (
     <div className={style.section}>
       <h6 className="p-body-responsive">{title}</h6>
@@ -150,7 +175,7 @@ const Section = ({ title, items = [] }: FilterSection) => {
         {items.map((item) => {
           return (
             <li className={style.sectionItem} key={item.id}>
-              <CheckBox initialChecked={item.active} id={item.id} />
+              <CheckBox onChange={(v) => onChange(v, item.value)} value={filters.includes(item.value)} id={item.id} />
               <label
                 className={`p-responsive ${style.sectionItemLabel}`}
                 htmlFor={item.id}

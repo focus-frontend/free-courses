@@ -1,0 +1,103 @@
+.header {
+  position: fixed;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+}
+
+.container {
+  width: 100%;
+  max-width: 1425px;
+  margin: 0 auto;
+  padding: 0 8px;
+}
+
+.body {
+  border: 0.86px solid var(--white);
+  border-radius: 10px;
+  padding: 9px 0;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.47);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include fluid(padding-left, 24px, 0px, 375px, 1236px);
+  @include fluid(padding-right, 24px, 0px, 375px, 1236px);
+}
+
+.logo {
+  width: 100%;
+  max-width: 142px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.link {
+  color: var(--surface-secondary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  svg {
+    font-size: 16px;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.login {
+  padding: 12px 18.5px;
+  text-transform: uppercase;
+}
+
+.start {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 8px 11px 24px;
+  text-transform: uppercase;
+
+  &.startMob {
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+    text-transform: none;
+    display: none;
+
+    &.startMob {
+      display: flex;
+    }
+  }
+
+  svg {
+    font-size: 26px;
+  }
+}
+
+.burgerButton {
+  background: transparent;
+  color: var(--surface-secondary);
+  display: none;
+  font-size: 48px;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 1024px) {
+    display: flex;
+  }
+}
