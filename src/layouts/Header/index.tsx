@@ -32,7 +32,7 @@ const Header = () => {
             </div>
           </nav>
 
-          <div className={style.buttons}>
+          <div className={`${style.buttons} ${style.buttonsMob}`}>
             <Button className={classNames(style.start, style.startMob)} decor={true} type='yellow'>Get started <ArrowRightButton /></Button>
 
 

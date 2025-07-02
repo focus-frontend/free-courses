@@ -59,6 +59,14 @@
   gap: 8px;
 }
 
+.buttonsMob {
+  display: none;
+
+  @media (max-width: 1024px) {
+    display: flex;
+  }
+}
+
 .login {
   padding: 12px 18.5px;
   text-transform: uppercase;

@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 285px));
   gap: 24px;
+  align-items: flex-start;
 
   @media (max-width: 640px) {
     justify-content: center;
